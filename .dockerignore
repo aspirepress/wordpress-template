@@ -1,0 +1,8 @@
+# Ignore everything by default
+*
+
+# Explicitly include these
+!config/
+!docker/data/
+!web/
+!wp-cli.yml

@@ -1,0 +1,57 @@
+services:
+  ap-ks-wordpress:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      target: dev
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: 'mysql://wp:password@ap-ks-db:3306/wp'
+    volumes:
+      - .:/app
+      - ./docker/data/Caddyfile:/etc/caddy/Caddyfile
+      - ./docker/data/php.local.ini:/usr/local/etc/php/conf.d/php.local.ini
+    networks:
+      traefik: ~
+      app-net: ~
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.ap-ks.rule=Host(`kitchen-sink.local`)"
+      - "traefik.http.routers.ap-ks-https.rule=Host(`kitchen-sink.local`)"
+      - "traefik.http.routers.ap-ks-https.tls=true"
+    healthcheck:
+      # healthchecks on the app container are generally useless for dev environments.
+      disable: true
+      # not using curl -f for dev, since a 500 error keeps the container from appearing in traefik
+      test: ["CMD", "curl", "http://localhost/"]
+      timeout: 2s
+      retries: 10
+      start_period: 10s
+      start_interval: 1s
+
+  ap-ks-db:
+    image: mysql:8.4.5
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: wp
+      MYSQL_USER: wp
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - ap-ks-db:/var/lib/mysql
+    networks:
+      app-net: ~
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-ppassword"]
+      timeout: 2s
+      retries: 10
+      start_period: 10s
+      start_interval: 1s
+
+volumes:
+  ap-ks-db:
+
+networks:
+  app-net: ~
+  traefik:
+    external: true

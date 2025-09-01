@@ -1,0 +1,9 @@
+#!/bin/bash
+
+. $(dirname $0)/_prelude.bash
+
+[[ -n $DANGEROUSLY_ALLOW_SCRAPE ]] || die "DANGEROUSLY_ALLOW_SCRAPE not set -- aborted"
+
+docker compose down --remove-orphans --volumes
+bin/rebuild
+bin/start --build

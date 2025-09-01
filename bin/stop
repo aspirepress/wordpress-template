@@ -1,0 +1,5 @@
+#!/bin/bash
+
+. $(dirname $0)/_prelude.bash
+
+exec docker compose stop "$@"
