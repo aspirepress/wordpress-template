@@ -20,6 +20,10 @@
     {
       "type": "vcs",
       "url": "https://github.com/fairpm/fair-plugin"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/fairpm/mini-fair-repo"
     }
   ],
   "require": {
@@ -33,7 +37,9 @@
     "roots/wp-config": "1.0.0",
     "wpackagist-theme/twentytwentyfive": "^1.0",
     "aspirepress/aspireupdate": "dev-main",
-    "fair/fair-plugin": "dev-main"
+    "fair/fair-plugin": "dev-main",
+    "afragen/git-updater": "dev-fair",
+    "fairpm/mini-fair-repo": "dev-main"
   },
   "require-dev": {
     "roave/security-advisories": "dev-latest"
