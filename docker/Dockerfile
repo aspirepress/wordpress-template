@@ -2,7 +2,7 @@ FROM dunglas/frankenphp:1.9.0-php8.4.11-bookworm AS base
 
 COPY --from=composer:2.8.11 /usr/bin/composer /usr/bin/composer
 
-RUN install-php-extensions apcu bcmath exif gd intl mysqli zip imagick opcache
+RUN install-php-extensions apcu bcmath exif gd gmp intl mysqli zip imagick opcache
 
 RUN useradd --create-home --shell /bin/bash app \
     && chown -R app:app /config /data \
