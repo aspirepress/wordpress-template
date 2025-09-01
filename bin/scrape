@@ -4,6 +4,9 @@
 
 [[ ${DANGEROUSLY_ALLOW_SCRAPE:-0} != 0 ]] || die "DANGEROUSLY_ALLOW_SCRAPE not set -- aborted"
 
-docker compose down --remove-orphans --volumes
+args=''
+[[ ${SCRAPE_VOLUMES:-0} != 0 ]] && args="$args --volumes"
+
+docker compose down --remove-orphans $args
 bin/rebuild
 bin/start --build
