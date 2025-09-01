@@ -1,1 +1,1 @@
-# kitchen-sink
+# wordpress-template

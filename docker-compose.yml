@@ -16,8 +16,8 @@ services:
       app-net: ~
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.ap-ks.rule=Host(`kitchen-sink.local`)"
-      - "traefik.http.routers.ap-ks-https.rule=Host(`kitchen-sink.local`)"
+      - "traefik.http.routers.ap-ks.rule=Host(`wordpress-template.local`)"
+      - "traefik.http.routers.ap-ks-https.rule=Host(`wordpress-template.local`)"
       - "traefik.http.routers.ap-ks-https.tls=true"
     healthcheck:
       # healthchecks on the app container are generally useless for dev environments.

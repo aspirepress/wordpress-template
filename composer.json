@@ -1,9 +1,9 @@
 {
-  "name": "aspirepress/kitchen-sink",
+  "name": "aspirepress/wordpress-template",
   "type": "project",
   "license": "MIT",
   "description": "WordPress boilerplate based on Roots Bedrock, pre-configured with a large number of plugins",
-  "homepage": "https://github.com/aspirepress/kitchen-sink",
+  "homepage": "https://github.com/aspirepress/wordpress-template",
   "repositories": [
     {
       "type": "composer",
