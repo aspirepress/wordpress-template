@@ -2,7 +2,8 @@
 
 . $(dirname $0)/_prelude.bash
 
-rm -rf vendor
+rm -rf vendor web/app/{plugins,themes}
+git checkout web/app/{plugins,themes}
 composer install
 
 [[ -e .env ]] || cp -v .env.example .env
