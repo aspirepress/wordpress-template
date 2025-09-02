@@ -5,7 +5,7 @@
 packages=()
 for package in "$@"
 do
-  [[ ! $package =~ / ]] && package=wpackagist-plugin/$package
+  [[ ! $package =~ / ]] && package=${DEFAULT_NAMESPACE:-wpackagist-plugin}/$package
   [[ ! $package =~ : ]] && [[ -n ${DEFAULT_VERSION:-} ]] && package="$package:$DEFAULT_VERSION"
   packages+=($package)
 done
