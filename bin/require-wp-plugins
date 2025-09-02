@@ -1,0 +1,13 @@
+#!/bin/bash
+
+. $(dirname $0)/_prelude.bash
+
+packages=()
+for package in "$@"
+do
+  [[ ! $package =~ / ]] && package=wpackagist-plugin/$package
+  [[ ! $package =~ : ]] && [[ -n ${DEFAULT_VERSION:-} ]] && package="$package:$DEFAULT_VERSION"
+  packages+=($package)
+done
+
+composer require ${packages[*]}
