@@ -1,14 +1,33 @@
 {
-  "name": "aspirepress/wordpress-template",
+  "name": "aspirepress/kitchen-sink",
   "type": "project",
   "license": "MIT",
   "description": "WordPress boilerplate based on Roots Bedrock, pre-configured with a large number of plugins",
-  "homepage": "https://github.com/aspirepress/wordpress-template",
+  "homepage": "https://github.com/aspirepress/kitchen-sink",
   "repositories": [
     {
       "type": "composer",
       "url": "https://wpackagist.org",
-      "only": ["wpackagist-plugin/*", "wpackagist-theme/*"]
+      "only": [
+        "wpackagist-plugin/*",
+        "wpackagist-theme/*"
+      ]
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/aspirepress/AspireUpdate"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/aspirepress/aspirecloud-plugin"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/fairpm/fair-plugin"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/fairpm/mini-fair-repo"
     }
   ],
   "require": {
@@ -20,26 +39,67 @@
     "roots/bedrock-disallow-indexing": "^2.0",
     "roots/wordpress": "6.8.2",
     "roots/wp-config": "1.0.0",
-    "wpackagist-theme/twentytwentyfive": "^1.0"
+    "wpackagist-theme/twentytwentyfive": "^1.0",
+    "aspirepress/aspireupdate": "dev-main",
+    "fair/fair-plugin": "dev-main",
+    "afragen/git-updater": "dev-develop",
+    "fairpm/mini-fair-repo": "dev-main",
+    "wpackagist-plugin/akismet": "dev-trunk",
+    "wpackagist-plugin/wordpress-seo": "dev-trunk",
+    "wpackagist-plugin/gutenberg": "dev-trunk",
+    "wpackagist-plugin/two-factor": "dev-trunk",
+    "wpackagist-plugin/contact-form-7": "dev-trunk",
+    "wpackagist-plugin/woocommerce": "dev-trunk",
+    "wpackagist-plugin/advanced-custom-fields": "dev-trunk",
+    "wpackagist-plugin/hello-dolly": "dev-trunk",
+    "wpackagist-plugin/classic-editor": "dev-trunk",
+    "wpackagist-plugin/all-in-one-wp-migration": "dev-trunk",
+    "wpackagist-plugin/google-site-kit": "dev-trunk",
+    "wpackagist-plugin/wordfence": "dev-trunk",
+    "wpackagist-plugin/wp-mail-smtp": "dev-trunk",
+    "wpackagist-plugin/really-simple-ssl": "dev-trunk",
+    "wpackagist-plugin/duplicate-page": "dev-trunk",
+    "wpackagist-plugin/redirection": "dev-trunk",
+    "wpackagist-plugin/better-search-replace": "dev-trunk",
+    "wpackagist-plugin/svg-support": "dev-trunk",
+    "wpackagist-plugin/wp-optimize": "dev-trunk",
+    "wpackagist-plugin/ultimate-addons-for-gutenberg": "dev-trunk",
+    "wpackagist-plugin/polylang": "dev-trunk",
+    "wpackagist-plugin/meta-box": "dev-trunk",
+    "wpackagist-plugin/easy-table-of-contents": "dev-trunk",
+    "wpackagist-plugin/kadence-blocks": "dev-trunk",
+    "wpackagist-plugin/limit-login-attempts": "dev-trunk",
+    "aspirepress/aspirecloud": "dev-main"
   },
   "require-dev": {
-    "roave/security-advisories": "dev-latest"
+    "roave/security-advisories": "dev-latest",
+    "mcaskill/composer-exclude-files": "^4.0"
   },
   "config": {
     "optimize-autoloader": true,
     "preferred-install": "dist",
     "allow-plugins": {
       "composer/installers": true,
-      "roots/wordpress-core-installer": true
+      "roots/wordpress-core-installer": true,
+      "mcaskill/composer-exclude-files": true
     }
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
   "extra": {
+    "exclude-from-files": [
+      "freemius/wordpress-sdk/start.php"
+    ],
     "installer-paths": {
-      "web/app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
-      "web/app/plugins/{$name}/": ["type:wordpress-plugin"],
-      "web/app/themes/{$name}/": ["type:wordpress-theme"]
+      "web/app/mu-plugins/{$name}/": [
+        "type:wordpress-muplugin"
+      ],
+      "web/app/plugins/{$name}/": [
+        "type:wordpress-plugin"
+      ],
+      "web/app/themes/{$name}/": [
+        "type:wordpress-theme"
+      ]
     },
     "wordpress-install-dir": "web/wp"
   },
