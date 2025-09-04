@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "628ec395342256d9cb93f7782a04330f",
+    "content-hash": "4cd61835b85e32e12e4e761b3984df8b",
     "packages": [
         {
             "name": "afragen/autoloader",
@@ -49,28 +49,36 @@
         },
         {
             "name": "afragen/git-updater",
-            "version": "dev-fair",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/afragen/git-updater.git",
-                "reference": "49c666006499231311a2c147e455fb44e0bff7f7"
+                "reference": "44789f17cbeba31f594dae59242d75a99f0246cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/afragen/git-updater/zipball/49c666006499231311a2c147e455fb44e0bff7f7",
-                "reference": "49c666006499231311a2c147e455fb44e0bff7f7",
+                "url": "https://api.github.com/repos/afragen/git-updater/zipball/44789f17cbeba31f594dae59242d75a99f0246cb",
+                "reference": "44789f17cbeba31f594dae59242d75a99f0246cb",
                 "shasum": ""
             },
             "require": {
                 "afragen/singleton": "^1.0",
                 "afragen/wordpress-plugin-readme-parser": "^1",
                 "afragen/wp-dismiss-notice": "*",
+                "freemius/wordpress-sdk": "^2.12",
                 "php": ">=8.0"
             },
             "require-dev": {
+                "mcaskill/composer-exclude-files": "^4.0",
                 "wp-coding-standards/wpcs": "^3.0.0"
             },
+            "default-branch": true,
             "type": "wordpress-plugin",
+            "extra": {
+                "exclude-from-files": [
+                    "freemius/wordpress-sdk/start.php"
+                ]
+            },
             "autoload": {
                 "psr-4": {
                     "Fragen\\Git_Updater\\": "src/Git_Updater/"
@@ -105,7 +113,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-08-06T23:27:35+00:00"
+            "time": "2025-09-03T00:46:02+00:00"
         },
         {
             "name": "afragen/git-updater-lite",
@@ -916,6 +924,59 @@
                 "source": "https://github.com/fairpm/mini-fair-repo"
             },
             "time": "2025-09-01T19:33:48+00:00"
+        },
+        {
+            "name": "freemius/wordpress-sdk",
+            "version": "2.12.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Freemius/wordpress-sdk.git",
+                "reference": "fedeba08eb3e62af5f84bd6d602f98636467cffc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Freemius/wordpress-sdk/zipball/fedeba08eb3e62af5f84bd6d602f98636467cffc",
+                "reference": "fedeba08eb3e62af5f84bd6d602f98636467cffc",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+                "phpcompatibility/php-compatibility": "^9.3",
+                "phpcompatibility/phpcompatibility-wp": "^2.1",
+                "phpstan/extension-installer": "^1.3",
+                "squizlabs/php_codesniffer": "^3.7",
+                "szepeviktor/phpstan-wordpress": "^1.3",
+                "wp-coding-standards/wpcs": "^2.3"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "start.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-only"
+            ],
+            "description": "Freemius WordPress SDK",
+            "homepage": "https://freemius.com",
+            "keywords": [
+                "freemius",
+                "plugin",
+                "sdk",
+                "theme",
+                "wordpress",
+                "wordpress-plugin",
+                "wordpress-theme"
+            ],
+            "support": {
+                "issues": "https://github.com/Freemius/wordpress-sdk/issues",
+                "source": "https://github.com/Freemius/wordpress-sdk/tree/2.12.1"
+            },
+            "time": "2025-07-06T13:27:13+00:00"
         },
         {
             "name": "graham-campbell/result-type",
@@ -2577,6 +2638,58 @@
         }
     ],
     "packages-dev": [
+        {
+            "name": "mcaskill/composer-exclude-files",
+            "version": "v4.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mcaskill/composer-plugin-exclude-files.git",
+                "reference": "ed68fc7d6da2146ed2c32c92904587c9e03c985a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mcaskill/composer-plugin-exclude-files/zipball/ed68fc7d6da2146ed2c32c92904587c9e03c985a",
+                "reference": "ed68fc7d6da2146ed2c32c92904587c9e03c985a",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^2.3",
+                "php": "^7.2.5 || ^8.0"
+            },
+            "require-dev": {
+                "composer/composer": "^2.3",
+                "phpstan/phpstan": "^1.11",
+                "symfony/phpunit-bridge": "^7.1"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "McAskill\\Composer\\ExcludeFilePlugin",
+                "branch-alias": {
+                    "dev-main": "4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "McAskill\\Composer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chauncey McAskill",
+                    "email": "chauncey@mcaskill.ca"
+                }
+            ],
+            "description": "Exclude files from autoload_files.php",
+            "support": {
+                "issues": "https://github.com/mcaskill/composer-plugin-exclude-files/issues",
+                "source": "https://github.com/mcaskill/composer-plugin-exclude-files/tree/v4.0.1"
+            },
+            "time": "2024-12-03T21:08:26+00:00"
+        },
         {
             "name": "roave/security-advisories",
             "version": "dev-latest",

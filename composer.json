@@ -42,7 +42,7 @@
     "wpackagist-theme/twentytwentyfive": "^1.0",
     "aspirepress/aspireupdate": "dev-main",
     "fair/fair-plugin": "dev-main",
-    "afragen/git-updater": "dev-fair",
+    "afragen/git-updater": "dev-develop",
     "fairpm/mini-fair-repo": "dev-main",
     "wpackagist-plugin/akismet": "dev-trunk",
     "wpackagist-plugin/wordpress-seo": "dev-trunk",
@@ -72,19 +72,24 @@
     "aspirepress/aspirecloud": "dev-main"
   },
   "require-dev": {
-    "roave/security-advisories": "dev-latest"
+    "roave/security-advisories": "dev-latest",
+    "mcaskill/composer-exclude-files": "^4.0"
   },
   "config": {
     "optimize-autoloader": true,
     "preferred-install": "dist",
     "allow-plugins": {
       "composer/installers": true,
-      "roots/wordpress-core-installer": true
+      "roots/wordpress-core-installer": true,
+      "mcaskill/composer-exclude-files": true
     }
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
   "extra": {
+    "exclude-from-files": [
+      "freemius/wordpress-sdk/start.php"
+    ],
     "installer-paths": {
       "web/app/mu-plugins/{$name}/": [
         "type:wordpress-muplugin"
